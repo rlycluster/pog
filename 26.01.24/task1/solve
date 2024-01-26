@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+using ld = long double;
+#define all(x) (x).begin(), (x).end()
+
+string s;
+ll cc = 0, tp = 0;
+vector <char> z;
+
+void solve()
+{
+  cin >> s;
+
+  for (int i = 0; i < s.length(); i++) {
+    z.push_back(s[i]);
+  }
+
+  for (int i = 0; i < s.length(); i++) {
+    ll ti = i;
+    if (i == 0) {
+      cout << 0 << " ";
+      continue;
+    }
+
+    while ((z[ti] == z[tp]) && (ti <= s.length())) {
+      ti++;
+      tp++;
+      cc++;
+    }
+    cout << cc << " ";
+    cc = tp = 0;
+    ti = i;
+  }
+}
+
+int main()
+{
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+
+  solve();
+  return 0;
+}
